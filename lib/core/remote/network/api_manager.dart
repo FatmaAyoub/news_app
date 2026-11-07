@@ -5,27 +5,44 @@ import 'package:news_app/data/model/sources/Sources_response.dart';
 
 class ApiManager {
   static Dio dio = Dio(BaseOptions(baseUrl: "https://newsapi.org"));
-  //
+
   static Future<SourcesResponse> getSources(String categoryId) async {
-   
     var response = await dio.get(
       "/v2/top-headlines/sources",
       queryParameters: {
         "apiKey": AppConstants.apiKey,
         "category": categoryId,
-      
       },
     );
-    var sourcesResponse = SourcesResponse.fromJson(response.data);
-    return sourcesResponse;
+    return SourcesResponse.fromJson(response.data);
   }
 
-  static Future<ArticlesResponse> getArticles(String sourceId) async {
+  static Future<ArticlesResponse> getArticles(
+    String sourceId, {
+    required int page,
+    required int pageSize,
+  }) async {
     var response = await dio.get(
       "/v2/everything",
-      queryParameters: {"apiKey": AppConstants.apiKey, "sources": sourceId},
+      queryParameters: {
+        "apiKey": AppConstants.apiKey,
+        "sources": sourceId,
+        "page": page,
+        "pageSize": pageSize,
+      },
     );
-    var articlesResponse = ArticlesResponse.fromJson(response.data);
-    return articlesResponse;
+    return ArticlesResponse.fromJson(response.data);
+  }
+
+  static Future<ArticlesResponse> searchArticles(String query) async {
+    var response = await dio.get(
+      "/v2/everything",
+      queryParameters: {
+        "apiKey": AppConstants.apiKey,
+        "q": query,
+        "pageSize": 20,
+      },
+    );
+    return ArticlesResponse.fromJson(response.data);
   }
 }

@@ -6,14 +6,8 @@ import 'package:news_app/ui/home/widget/articles_widget/widget/articles_list/art
 // import 'package:news_app/core/remote/network/api_manager.dart';
 import 'package:news_app/data/model/sources/Source.dart';
 
-// import 'package:flutter/material.dart';
-// import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_app/ui/home/widget/articles_widget/widget/viewmodel/articles_view_model.dart';
-// import 'package:news_app/ui/home/widget/articles_widget/widget/articles_list/articles_list.dart';
 
-// import 'package:news_app/ui/home/widget/articles_widget/widget/viewmodel/articles_view_model.dart';
-
-// import 'package:provider/provider.dart';
 
 class ArticlesWidget extends StatefulWidget {
   final String categoryId;
@@ -88,25 +82,7 @@ class _ArticlesWidgetState extends State<ArticlesWidget> {
                 );
               }
           }
-          /*if(state is SuccessState){
-
-              }
-              if(state is ErrorState){
-                return Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(state.errorMessage),
-                      ElevatedButton(onPressed: () {
-                        setState(() {
-
-                        });
-                      }, child: Text("Try Again"))
-                    ],
-                  ),
-                );
-              }
-              return Center(child: CircularProgressIndicator(),);*/
+         
         },
       ),
     );

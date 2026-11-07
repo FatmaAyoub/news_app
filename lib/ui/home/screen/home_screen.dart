@@ -5,6 +5,7 @@ import 'package:news_app/core/resources/assets_manager.dart';
 import 'package:news_app/core/resources/strings_manage.dart';
 // import 'package:news_app/core/remote/network/api_manager.dart';
 import 'package:news_app/data/model/category_model.dart';
+import 'package:news_app/ui/search/screen/search_screen.dart';
 import 'package:news_app/ui/home/widget/app_drawer.dart';
 import 'package:news_app/ui/home/widget/articles_widget/articles_widget .dart';
 import 'package:news_app/ui/home/widget/category_widget/categories_widget.dart';
@@ -39,7 +40,11 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+               Navigator.of(context).push(
+      MaterialPageRoute(builder: (_) => const SearchScreen()),
+    );
+            },
             icon: SvgPicture.asset(
               AssetsManager.search,
               height: 24.h,
